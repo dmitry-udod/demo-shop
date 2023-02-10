@@ -1,0 +1,152 @@
+[
+    {
+        "productName": "Apple iPhone X",
+        "description": "The latest Apple iPhone with advanced camera and Face ID technology.",
+        "price": 999.99
+    },
+    {
+        "productName": "Samsung Galaxy S10",
+        "description": "The latest Samsung Galaxy with a powerful processor and Infinity-O display.",
+        "price": 849.99
+    },
+    {
+        "productName": "Google Pixel 3",
+        "description": "The latest Google Pixel phone featuring a sleek design and AI-powered camera.",
+        "price": 799.99
+    },
+    {
+        "productName": "Sony PlayStation 4 Pro",
+        "description": "The latest Sony gaming console with 4K HDR graphics and advanced audio.",
+        "price": 399.99
+    },
+    {
+        "productName": "Microsoft Xbox One X",
+        "description": "The latest Microsoft gaming console with 4K gaming capabilities.",
+        "price": 499.99
+    },
+    {
+        "productName": "Canon EOS 6D Mark II",
+        "description": "A professional-grade DSLR camera with an advanced autofocus system.",
+        "price": 1999.99
+    },
+    {
+        "productName": "Nikon D750",
+        "description": "A 24.3MP full-frame DSLR camera with a 51-point autofocus system.",
+        "price": 1499.99
+    },
+    {
+        "productName": "Apple AirPods Pro",
+        "description": "The latest Apple AirPods with active noise cancellation and a customizable fit.",
+        "price": 249.99
+    },
+    {
+        "productName": "Beats Solo Pro Wireless Headphones",
+        "description": "Beats latest wireless headphones featuring active noise cancellation and up to 40 hours of battery life.",
+        "price": 299.99
+    },
+    {
+        "productName": "Apple Watch Series 5",
+        "description": "The latest Apple Watch with advanced health monitoring features and an always-on display.",
+        "price": 399.99
+    },
+    {
+        "productName": "Fitbit Charge 3",
+        "description": "The latest Fitbit fitness tracker with advanced activity and sleep tracking features.",
+        "price": 149.99
+    },
+    {
+        "productName": "Sony WH-1000XM3",
+        "description": "Sony's latest wireless noise-cancelling headphones featuring up to 30 hours of battery life.",
+        "price": 349.99
+    },
+    {
+        "productName": "Bose QuietComfort 35 II",
+        "description": "Bose's latest noise-cancelling headphones featuring advanced audio technology and up to 20 hours of battery life.",
+        "price": 349.99
+    },
+    {
+        "productName": "Apple iPad Pro",
+        "description": "The latest Apple iPad featuring a Liquid Retina display and the A12X Bionic chip.",
+        "price": 999.99
+    },
+    {
+        "productName": "Samsung Galaxy Tab S4",
+        "description": "The latest Samsung tablet featuring an advanced S-Pen and a 10.5-inch Super AMOLED display.",
+        "price": 699.99
+    },
+    {
+        "productName": "Microsoft Surface Pro 6",
+        "description": "Microsoft's latest surface tablet featuring an improved design and up to 13.5 hours of battery life.",
+        "price": 899.99
+    },
+    {
+        "productName": "Lenovo Yoga 920",
+        "description": "A powerful 2-in-1 laptop featuring a 13.9-inch display and advanced Intel processing.",
+        "price": 1499.99
+    },
+    {
+        "productName": "Dell XPS 13",
+        "description": "The latest Dell laptop featuring a 13-inch InfinityEdge display and up to 15 hours of battery life.",
+        "price": 999.99
+    },
+    {
+        "productName": "Apple MacBook Pro",
+        "description": "The latest Apple laptop featuring a 13-inch Retina display and advanced Touch Bar technology.",
+        "price": 1299.99
+    },
+    {
+        "productName": "LG OLED TV",
+        "description": "LG's latest OLED TV featuring an advanced picture processor and support for Dolby Atmos.",
+        "price": 2299.99
+    },
+    {
+        "productName": "Apple iPhone 11 Pro Max",
+        "description": "A phone with a 6.5 inch Super Retina XDR display, triple 12 MP rear cameras, and Apple's A13 Bionic chip",
+        "price": "1,099.00"
+    },
+    {
+        "productName": "Macbook Pro 13",
+        "description": "A laptop with 8GB RAM and 256GB of storage, and four Thunderbolt 3 ports",
+        "price": "1,299.00"
+    },
+    {
+        "productName": "Beats Studio3 Wireless Headphones",
+        "description": "wireless headphones with noise cancellation technology, up to 22 hours of battery life, and Fast Fuel charging",
+        "price": "349.95"
+    },
+    {
+        "productName": "Apple TV 4K",
+        "description": "A streaming device with 4K HDR, Dolby Atmos, and support for Apple AirPlay 2 and HomeKit",
+        "price": "179.00"
+    },
+    {
+        "productName": "GoPro Hero8 Black Camera",
+        "description": "An action camera with 4K60 video and 12MP photos, waterproof design, and built-in mounting accessories",
+        "price": "399.99"
+    },
+    {
+        "productName": "Sony PlayStation 4 Pro Black",
+        "description": "An advanced PlayStation console with 4K HDR gaming, an 8-core processor, and integrated Wi-Fi",
+        "price": "399.99"
+    },
+    {
+        "productName": "Bose SoundLink Revolve+ Portable Bluetooth Speaker",
+        "description": "A portable Bluetooth speaker with 360-degree sound, up to 16 hours of battery life, and a water-resistant design",
+        "price": "299.00"
+    },
+    {
+        "productName": "Nest Cam IQ Indoor Security Camera",
+        "description": "A security camera with HD video and audio, with facial recognition to identify people and objects",
+        "price": "299.00"
+    },
+    {
+        "productName": "Microsoft Surface Pro 6 Pink",
+        "description": "A tablet with an Intel Core i5 processor, 8GB RAM and 128GB of storage, and up to 13.5 hours of battery life",
+        "price": "899.00"
+    },
+    {
+        "productName": "Samsung Galaxy Tab S6",
+        "description": "A tablet with an edge-to-edge Super AMOLED display, up to 15 hours of battery life, and an integrated S Pen",
+        "price": "649.99"
+    }
+]
