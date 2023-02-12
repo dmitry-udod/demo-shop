@@ -19,7 +19,7 @@ class ProductsTest extends TestCase
         $productsCount = 5;
         Product::factory()->count($productsCount)->create();
 
-        $this->authUserCall()->get('/products')->assertInertia(fn (Assert $page) => $page
+        $this->authUserCall()->get(route('products'))->assertInertia(fn (Assert $page) => $page
             ->has('products.data', $productsCount)
             ->has('products.data.0', fn (Assert $page) => $page
                 ->has('id')
