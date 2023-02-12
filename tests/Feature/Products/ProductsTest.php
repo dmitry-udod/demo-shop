@@ -22,8 +22,8 @@ class ProductsTest extends TestCase
         $this->authUserCall()->get('/products')->assertInertia(fn (Assert $page) => $page
             ->has('products.data', $productsCount)
             ->has('products.data.0', fn (Assert $page) => $page
+                ->has('id')
                 ->has('name')
-                ->has('slug')
                 ->has('price')
             )
         );
@@ -32,11 +32,20 @@ class ProductsTest extends TestCase
     /** @test */
     public function create_product()
     {
+        $this->authUserCall()->get('/products/create')->assertInertia(fn (Assert $page) => $page
+            ->has('product.data')
+            ->where('product.data.id', null)
+        );
+    }
+
+    /** @test */
+    public function store_product()
+    {
         $this->assertCount(0, Product::all());
 
         $data = ProductData::from($this->product());
 
-        $this->authUserCall()->post('/products', $data->toArray())->assertOk();
+        $this->authUserCall()->post('/products', $data->toArray())->assertRedirectToRoute('products');
 
         $this->assertCount(1, Product::all());
         $this->assertEquals($data, ProductData::from(Product::first()));
@@ -55,13 +64,24 @@ class ProductsTest extends TestCase
     }
 
     /** @test */
+    public function edit_product()
+    {
+        $product = Product::factory()->create();
+
+        $this->authUserCall()->get("/products/{$product->id}")->assertInertia(fn (Assert $page) => $page
+            ->has('product.data')
+            ->where('product.data.id', $product->id)
+        );
+    }
+
+    /** @test */
     public function update_product()
     {
         $product = Product::factory()->create();
 
         $data = ProductData::from($this->product());
 
-        $this->authUserCall()->put("/products/{$product->id}", $data->toArray())->assertOk();
+        $this->authUserCall()->put("/products/{$product->id}", $data->toArray())->assertRedirectToRoute('products');
 
         $this->assertCount(1, Product::all());
         $this->assertEquals($data, ProductData::from(Product::first()));

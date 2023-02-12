@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Products\StoreProductRequest;
 use App\Http\Requests\Products\UpdateProductRequest;
 use App\Http\Resources\Products\ProductInListResource;
+use App\Http\Resources\Products\ProductResource;
 use App\Models\Product;
 use App\QueryBuilders\ProductQueryBuilder;
 use Inertia\Inertia;
@@ -28,7 +29,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        //
+        return Inertia::render('Products/Create', [
+            'product' => ProductResource::make(new Product()),
+        ]);
     }
 
     public function store(StoreProductRequest $request, ProductCreateAction $action)
@@ -36,28 +39,15 @@ class ProductController extends Controller
         $data = ProductData::from($request->validated());
 
         $action->execute($data);
+
+        return to_route('products');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
     {
-        //
+        return Inertia::render('Products/Edit', [
+            'product' => ProductResource::make($product),
+        ]);
     }
 
     public function update(UpdateProductRequest $request, Product $product, ProductUpdateAction $action)
@@ -65,5 +55,7 @@ class ProductController extends Controller
         $data = ProductData::from($request->validated());
 
         $action->execute($product, $data);
+
+        return to_route('products');
     }
 }

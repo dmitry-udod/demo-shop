@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ProductQueryBuilder
 {
-    public function getAll(): Builder
+    public function paginate(int $perPage = 10): Paginator
     {
-        return Product::orderByDesc('id');
+        return $this->all()->paginate($perPage);
     }
 
-    public function paginate(int $perPage = 15): Paginator
+    private function all(): Builder
     {
-        return $this->getAll()->paginate($perPage);
+        return Product::orderByDesc('id');
     }
 }
