@@ -9,8 +9,6 @@ class ProductSeeder extends Seeder
 {
     public function run()
     {
-        Product::truncate();
-
         $products = collect(json_decode(file_get_contents(database_path('seeders/_data/products.json'))));
 
         $products->each(fn($product) => Product::factory()->create([
