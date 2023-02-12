@@ -14,7 +14,7 @@ import { Link } from '@inertiajs/vue3';
                 </tr>
                 </thead>
                 <tbody class="bg-white dark:bg-slate-800">
-                <tr v-for="product in products" :key="product.id">
+                <tr v-for="product in products.data" :key="product.id">
                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                         <Link :href="route('products.update', product.id)" class="text-sm text-gray-700 dark:text-gray-500 underline">
                             {{ product.name }}
@@ -26,6 +26,13 @@ import { Link } from '@inertiajs/vue3';
                 </tr>
                 </tbody>
             </table>
+
+            <div v-if="products.links">
+                <div class="flex justify-end p-4">
+                    <Link v-if="products.links.prev" :href="products.links.prev" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Prev</Link>
+                    <Link v-if="products.links.next" :href="products.links.next" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Next</Link>
+                </div>
+            </div>
         </div>
     </div>
 </template>

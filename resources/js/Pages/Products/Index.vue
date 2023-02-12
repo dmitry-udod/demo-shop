@@ -25,14 +25,7 @@ const props = defineProps({
                         </Link>
                     </div>
 
-                    <ProductsList :products="products.data"/>
-
-                    <div v-if="products.links">
-                        <div class="flex justify-end p-4">
-                            <Link v-if="products.links.prev" :href="products.links.prev" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Prev</Link>
-                            <Link v-if="products.links.next" :href="products.links.next" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Next</Link>
-                        </div>
-                    </div>
+                    <ProductsList :products="products"/>
                 </div>
             </div>
         </div>
