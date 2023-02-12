@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Products;
 
+use App\Actions\Products\ProductCreateAction;
+use App\Actions\Products\ProductUpdateAction;
+use App\Data\ProductData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Products\StoreProductRequest;
 use App\Http\Requests\Products\UpdateProductRequest;
@@ -18,7 +21,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        return Inertia::render('Products', [
+        return Inertia::render('Products/Index', [
             'products' =>  ProductInListResource::collection($this->productQueryBuilder->paginate())
         ]);
     }
@@ -28,15 +31,11 @@ class ProductController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\Products\StoreProductRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreProductRequest $request)
+    public function store(StoreProductRequest $request, ProductCreateAction $action)
     {
-        //
+        $data = ProductData::from($request->validated());
+
+        $action->execute($data);
     }
 
     /**
@@ -61,26 +60,10 @@ class ProductController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\Products\UpdateProductRequest  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product, ProductUpdateAction $action)
     {
-        //
-    }
+        $data = ProductData::from($request->validated());
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        //
+        $action->execute($product, $data);
     }
 }

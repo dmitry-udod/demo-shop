@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,7 +15,7 @@ class ProductFactory extends Factory
         return [
             'description' => $this->faker->paragraph,
             'name' => $this->faker->name,
-            'price' => $this->faker->randomFloat(min: 0.1, max: 100_000),
+            'price' => $this->faker->randomFloat(min: Product::PRODUCT_MIN_PRICE, max: Product::PRODUCT_MAX_PRICE),
         ];
     }
 }
