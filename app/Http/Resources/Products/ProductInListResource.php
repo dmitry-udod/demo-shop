@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Products;
 
 use App\Models\Product;
+use App\Services\MoneyService;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductInListResource extends JsonResource
@@ -15,7 +16,7 @@ class ProductInListResource extends JsonResource
         return [
             'id' => $product->id,
             'name' => $product->name,
-            'price' => $product->price,
+            'price' => MoneyService::formatPrice($product->price),
         ];
     }
 }

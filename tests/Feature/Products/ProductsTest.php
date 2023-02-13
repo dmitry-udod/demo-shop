@@ -5,6 +5,7 @@ namespace Tests\Feature\Products;
 use App\Data\ProductData;
 use App\Models\Product;
 use App\Models\User;
+use App\Services\MoneyService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Inertia\Testing\AssertableInertia as Assert;
@@ -26,6 +27,16 @@ class ProductsTest extends TestCase
                 ->has('name')
                 ->has('price')
             )
+        );
+    }
+
+    /** @test */
+    public function product_price_formatted_properly()
+    {
+        $product = Product::factory()->create(['price' => 10_000.01]);
+
+        $this->authUserCall()->get(route('products'))->assertInertia(fn (Assert $page) => $page
+            ->where('products.data.0.price', MoneyService::formatPrice($product->price))
         );
     }
 

@@ -21,7 +21,7 @@ class ProductPriceRule implements Rule
 
         $maxPrice = Product::PRODUCT_MAX_PRICE;
         if ($price > $maxPrice) {
-            $this->msg = "Product price must be greater than $maxPrice";
+            $this->msg = "Product price must be less than $maxPrice";
             return false;
         }
 
