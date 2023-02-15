@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function index()
     {
         return Inertia::render('Products/Index', [
-            'products' =>  ProductInListResource::collection($this->productQueryBuilder->paginate())
+            'products' => ProductInListResource::collection($this->productQueryBuilder->paginate()),
         ]);
     }
 

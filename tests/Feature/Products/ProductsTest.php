@@ -7,8 +7,8 @@ use App\Models\Product;
 use App\Models\User;
 use App\Services\MoneyService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use Inertia\Testing\AssertableInertia as Assert;
+use Tests\TestCase;
 
 class ProductsTest extends TestCase
 {

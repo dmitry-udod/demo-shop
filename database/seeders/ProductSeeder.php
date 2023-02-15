@@ -11,10 +11,10 @@ class ProductSeeder extends Seeder
     {
         $products = collect(json_decode(file_get_contents(database_path('seeders/_data/products.json'))));
 
-        $products->each(fn($product) => Product::factory()->create([
+        $products->each(fn ($product) => Product::factory()->create([
             'description' => $product->description,
             'name' => $product->productName,
-            'price' => (double) $product->price,
+            'price' => (float) $product->price,
         ]));
     }
 }
