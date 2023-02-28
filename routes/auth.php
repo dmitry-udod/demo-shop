@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\AuthenticatedSessionByProviderController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
@@ -9,7 +10,9 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Services\Auth\AuthService;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -33,6 +36,15 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.store');
+
+    Route::get('/{provider}/login', [AuthenticatedSessionByProviderController::class, 'redirectToProvider'])
+        ->whereIn('provider', AuthService::providersList())
+        ->name('provider.login')
+    ;
+
+    Route::get('/{provider}/callback', [AuthenticatedSessionByProviderController::class, 'handleProviderCallback'])
+        ->whereIn('provider', AuthService::providersList())
+    ;
 });
 
 Route::middleware('auth')->group(function () {
